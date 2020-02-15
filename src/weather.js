@@ -19,8 +19,10 @@ export default class Weather {
     run(apiKey) {
         this.apiKey = apiKey;
         this.findLocation(()=>{
-            this.getConditions()
+            this.getConditions();
+            setInterval(this.getConditions, 2*60*1000);
         })
+
     }
 
     getConditions() {
