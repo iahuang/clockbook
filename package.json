@@ -16,6 +16,9 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "sirv-cli": "^0.4.4"
+    "@rollup/plugin-json": "^4.0.2",
+    "js-cookie": "^2.2.1",
+    "sirv-cli": "^0.4.4",
+    "weather-js": "^2.0.0"
   }
 }
