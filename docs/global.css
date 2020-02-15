@@ -2,8 +2,6 @@ body {
 	color: #ffffff;
 	width: 100vw;
 	height: 100vh;
-	background: rgb(47,24,70);
-	background: linear-gradient(0deg, rgba(47,24,70,1) 0%, rgba(20,34,89,1) 100%);
 	margin: 0;
 	text-align: center;
 	box-sizing: border-box;

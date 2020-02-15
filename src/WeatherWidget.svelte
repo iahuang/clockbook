@@ -12,19 +12,19 @@
 
 <style>
     .location {
-        font-size: 24pt;
+        font-size: 2vw;
         font-family: 'Roboto';
     }
     .weather {
-        font-size: 32pt;
+        font-size: 2vw;
         font-family: 'Roboto';
     }
     .weather-widget {
-        padding: 30px;
+        padding: 1vw;
     }
     .subtext {
         font-family: 'Roboto';
-        font-size: 24pt;
+        font-size: 1vw;
     }
 </style>
 

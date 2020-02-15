@@ -49,37 +49,48 @@
 
 <style>
 	.time {
-		font-size: 300pt;
+		font-size: 30vw;
 		text-align: start;
 		display: inline-block;
 		font-family: 'Roboto';
 		user-select: none;
 	}
 	.date {
-		font-size: 40pt;
+		font-size: 4vw;
 		font-family: 'Roboto';
 		user-select: none;
 	}
 	.ampm {
 		display: inline-block;
 		font-family: 'Roboto';
-		font-size: 30pt;
+		font-size: 5vw;
 		user-select: none;
 	}
 	.footer {
 		position: absolute;
 		bottom:0;
 	}
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgb(47,24,70);
+		background: linear-gradient(0deg, rgba(47,24,70,1) 0%, rgba(20,34,89,1) 100%);
+	}
 </style>
-
-<div class="time">{getTimeString(time)}</div>
-<div class="ampm">{get12hrSuffix(time)}</div>
-<div class="date">{getDateString(time)}</div>
-<WeatherWidget weather={weather}></WeatherWidget>
-<div class="footer">
-	<button on:click={function(){document.body.requestFullscreen();}}>fullscreen</button>
-	<button on:click={function(){weather.apiKey=null}}>reset api key</button>
+<div class="bg">
+	<div class="time">{getTimeString(time)}</div>
+	<div class="ampm">{get12hrSuffix(time)}</div>
+	<div class="date">{getDateString(time)}</div>
+	<WeatherWidget weather={weather}></WeatherWidget>
+	<div class="footer">
+		<button on:click={function(){document.body.requestFullscreen();}}>fullscreen</button>
+		<button on:click={function(){weather.apiKey=null}}>reset api key</button>
+	</div>
+	{#if !weather.apiKey}
+		<Welcome onSetApiKey={onSetApiKey}></Welcome>
+	{/if}
 </div>
-{#if !weather.apiKey}
-	<Welcome onSetApiKey={onSetApiKey}></Welcome>
-{/if}
+
