@@ -24,7 +24,7 @@ export default class Weather {
     }
 
     getConditions() {
-        let url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=imperial`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lon}&appid=${this.apiKey}&units=imperial`;
         const request = new Request(url);
         var a = fetch(request).then(resp => {
             resp.json().then((data => {
