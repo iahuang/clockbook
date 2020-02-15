@@ -11,6 +11,6 @@ def home():
 
 @app.route('/<path:path>')
 def send_js(path):
-    return send_from_directory('../docs', path)
+    return send_from_directory('../public', path)
 
 app.run(port=8080)
