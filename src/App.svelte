@@ -1,11 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
-	import Weather from './weather.js';
 	import WeatherWidget from './WeatherWidget.svelte';
 	import Cookies from 'js-cookie';
 	import { writable } from 'svelte/store';
-
-	sleep.prevent();
 	
 	let time = new Date();
 
@@ -102,13 +99,15 @@ background: linear-gradient(0deg, rgba(216,158,188,1) 0%, rgba(222,174,135,1) 10
 		flex-direction: column;
 		align-items: center;
 	}
-	button {
+	.footer > button {
 		background: none;
 		border: none;
-		color: rgb(168, 168, 168);
+		color: rgb(218, 218, 218);
 		text-decoration: none;
 		font-size: 16pt;
 		margin:10px;
+		cursor: pointer;
+		outline: none;
 	}
 </style>
 <div class="bg">
@@ -123,6 +122,7 @@ background: linear-gradient(0deg, rgba(216,158,188,1) 0%, rgba(222,174,135,1) 10
 	<WeatherWidget weatherData={weatherData} locationData={locationData}></WeatherWidget>
 	<div class="footer">
 		<button on:click={function(){document.body.requestFullscreen()}}>Fullscreen</button>
+		<button on:click={function(){sleep.prevent()}}>Prevent Sleep</button>
 	</div>
 </div>
 
