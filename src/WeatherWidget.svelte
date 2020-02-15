@@ -11,28 +11,19 @@
 </script>
 
 <style>
-    .location {
-        font-size: 2vw;
-        font-family: 'Roboto';
-    }
     .weather {
-        font-size: 2vw;
-        font-family: 'Roboto';
+        font-size: 5vh;
     }
     .weather-widget {
-        padding: 1vw;
+        padding: 3vh;
     }
     .subtext {
-        font-family: 'Roboto';
-        font-size: 1vw;
+        font-size: 3vh;
     }
 </style>
 
 {#if weatherData}
 <div class="weather-widget">
-    <div class="location">
-        Weather in {weatherData.name}
-    </div>
     <div class="weather">
         {Math.round(weatherData.main.temp)}ºF / {weatherData.weather[0].main}
     </div>

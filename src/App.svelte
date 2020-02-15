@@ -52,17 +52,14 @@
 		font-size: 30vw;
 		text-align: start;
 		display: inline-block;
-		font-family: 'Roboto';
 		user-select: none;
 	}
 	.date {
 		font-size: 4vw;
-		font-family: 'Roboto';
 		user-select: none;
 	}
 	.ampm {
 		display: inline-block;
-		font-family: 'Roboto';
 		font-size: 5vw;
 		user-select: none;
 	}
@@ -76,8 +73,16 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgb(47,24,70);
-		background: linear-gradient(0deg, rgba(47,24,70,1) 0%, rgba(20,34,89,1) 100%);
+		background: rgb(25,13,37);
+		background: linear-gradient(0deg, rgba(25,13,37,1) 0%, rgba(23,29,56,1) 100%);
+	}
+	button {
+		background: none;
+		border: none;
+		color: rgb(168, 168, 168);
+		text-decoration: none;
+		font-size: 16pt;
+		margin:10px;
 	}
 </style>
 <div class="bg">
@@ -86,8 +91,8 @@
 	<div class="date">{getDateString(time)}</div>
 	<WeatherWidget weather={weather}></WeatherWidget>
 	<div class="footer">
-		<button on:click={function(){document.body.requestFullscreen();}}>fullscreen</button>
-		<button on:click={function(){weather.apiKey=null}}>reset api key</button>
+		<button on:click={function(){document.body.requestFullscreen();}}>Fullscreen</button>
+		<button on:click={function(){weather.apiKey=null}}>Reset API key</button>
 	</div>
 	{#if !weather.apiKey}
 		<Welcome onSetApiKey={onSetApiKey}></Welcome>
