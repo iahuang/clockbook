@@ -404,7 +404,7 @@ var app = (function () {
 
     const file = "src/WeatherWidget.svelte";
 
-    // (30:0) {#if $weatherData}
+    // (33:0) {#if $weatherData}
     function create_if_block(ctx) {
     	let div4;
     	let div0;
@@ -461,20 +461,21 @@ var app = (function () {
     			t13 = text("Wind speed: ");
     			t14 = text(t14_value);
     			t15 = text(" mph");
-    			add_location(div0, file, 31, 4, 561);
-    			add_location(p, file, 35, 8, 681);
+    			attr_dev(div0, "class", "location svelte-1wbj1db");
+    			add_location(div0, file, 34, 4, 607);
+    			add_location(p, file, 38, 8, 744);
     			if (img.src !== (img_src_value = `http://openweathermap.org/img/wn/${/*$weatherData*/ ctx[2].weather[0].icon}@2x.png`)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "ok so remind me again why i need to add alt text");
-    			attr_dev(img, "class", "svelte-1fgwpyu");
-    			add_location(img, file, 36, 8, 735);
-    			attr_dev(div1, "class", "weather svelte-1fgwpyu");
-    			add_location(div1, file, 34, 4, 651);
-    			attr_dev(div2, "class", "subtext svelte-1fgwpyu");
-    			add_location(div2, file, 38, 4, 891);
-    			attr_dev(div3, "class", "subtext svelte-1fgwpyu");
-    			add_location(div3, file, 41, 4, 992);
-    			attr_dev(div4, "class", "weather-widget svelte-1fgwpyu");
-    			add_location(div4, file, 30, 0, 528);
+    			attr_dev(img, "class", "svelte-1wbj1db");
+    			add_location(img, file, 39, 8, 798);
+    			attr_dev(div1, "class", "weather svelte-1wbj1db");
+    			add_location(div1, file, 37, 4, 714);
+    			attr_dev(div2, "class", "subtext svelte-1wbj1db");
+    			add_location(div2, file, 41, 4, 954);
+    			attr_dev(div3, "class", "subtext svelte-1wbj1db");
+    			add_location(div3, file, 44, 4, 1055);
+    			attr_dev(div4, "class", "weather-widget svelte-1wbj1db");
+    			add_location(div4, file, 33, 0, 574);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -522,7 +523,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(30:0) {#if $weatherData}",
+    		source: "(33:0) {#if $weatherData}",
     		ctx
     	});
 
@@ -877,21 +878,21 @@ var app = (function () {
     			div5 = element("div");
     			button = element("button");
     			button.textContent = "Fullscreen";
-    			attr_dev(div0, "class", "time svelte-153gssi");
-    			add_location(div0, file$1, 111, 3, 1975);
-    			attr_dev(div1, "class", "ampm svelte-153gssi");
-    			add_location(div1, file$1, 112, 3, 2024);
-    			add_location(div2, file$1, 110, 2, 1966);
-    			attr_dev(div3, "class", "date svelte-153gssi");
-    			add_location(div3, file$1, 114, 2, 2095);
-    			attr_dev(div4, "class", "date-time svelte-153gssi");
-    			add_location(div4, file$1, 109, 1, 1940);
-    			attr_dev(button, "class", "svelte-153gssi");
-    			add_location(button, file$1, 119, 2, 2276);
-    			attr_dev(div5, "class", "footer svelte-153gssi");
-    			add_location(div5, file$1, 118, 1, 2253);
-    			attr_dev(div6, "class", "bg svelte-153gssi");
-    			add_location(div6, file$1, 108, 0, 1922);
+    			attr_dev(div0, "class", "time svelte-x7ip09");
+    			add_location(div0, file$1, 116, 3, 2080);
+    			attr_dev(div1, "class", "ampm svelte-x7ip09");
+    			add_location(div1, file$1, 117, 3, 2129);
+    			add_location(div2, file$1, 115, 2, 2071);
+    			attr_dev(div3, "class", "date svelte-x7ip09");
+    			add_location(div3, file$1, 119, 2, 2200);
+    			attr_dev(div4, "class", "date-time svelte-x7ip09");
+    			add_location(div4, file$1, 114, 1, 2045);
+    			attr_dev(button, "class", "svelte-x7ip09");
+    			add_location(button, file$1, 124, 2, 2381);
+    			attr_dev(div5, "class", "footer svelte-x7ip09");
+    			add_location(div5, file$1, 123, 1, 2358);
+    			attr_dev(div6, "class", "bg svelte-x7ip09");
+    			add_location(div6, file$1, 113, 0, 2027);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -979,11 +980,18 @@ var app = (function () {
     	let locationData = writable(null);
 
     	onMount(() => {
-    		const interval = setInterval(
+    		const clockInterval = setInterval(
     			() => {
     				$$invalidate(0, time = new Date());
     			},
-    			1000
+    			500
+    		);
+
+    		const dateRefreshInterval = setInterval(
+    			() => {
+    				$$invalidate(0, time = new Date());
+    			},
+    			60 * 1000
     		);
 
     		getWeather(resp => {
@@ -992,7 +1000,7 @@ var app = (function () {
     		});
 
     		return () => {
-    			clearInterval(interval);
+    			clearInterval(clockInterval);
     		};
     	});
 

@@ -24,15 +24,20 @@
 	let locationData = writable(null);
 
 	onMount(() => {
-		const interval = setInterval(() => {
+		const clockInterval = setInterval(() => {
 			time = new Date();
-		}, 1000);
+		}, 500);
+
+		const dateRefreshInterval = setInterval(() => {
+			time = new Date();
+		}, 60*1000);
+
 		getWeather(resp=>{
 			locationData.set(resp[0]);
 			weatherData.set(resp[1]);
 		});
 		return () => {
-			clearInterval(interval);
+			clearInterval(clockInterval);
 		};
 		
 	});
@@ -67,7 +72,7 @@
 		line-height: 1;
 	}
 	.date {
-		font-size: 4vw;
+		font-size: 3vw;
 		user-select: none;
 		letter-spacing: 4px;
 	}
@@ -85,8 +90,8 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgb(25,13,37);
-		background: linear-gradient(0deg, rgba(25,13,37,1) 0%, rgba(23,29,56,1) 100%);
+		background: rgb(216,158,188);
+background: linear-gradient(0deg, rgba(216,158,188,1) 0%, rgba(222,174,135,1) 100%);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;

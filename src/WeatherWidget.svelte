@@ -23,13 +23,16 @@
         flex-direction: column;
     }
     .subtext {
+        font-size: 2vh;
+    }
+    .location {
         font-size: 3vh;
     }
 </style>
 
 {#if $weatherData}
 <div class="weather-widget">
-    <div>
+    <div class="location">
         Weather in {$locationData.city}, {$locationData.region_code}
     </div>
     <div class="weather">
