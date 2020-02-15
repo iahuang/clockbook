@@ -3,8 +3,6 @@ body {
 	width: 100vw;
 	height: 100vh;
 	margin: 0;
-	text-align: center;
-	box-sizing: border-box;
 	font-family: 'Roboto';
 	font-weight: 100;
 }

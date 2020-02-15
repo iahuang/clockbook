@@ -1,29 +1,40 @@
 <script>
 	import { onMount } from 'svelte';
 	import Weather from './weather.js';
-	import Cookies from 'js-cookie';
-
-	import Welcome from './Welcome.svelte';
 	import WeatherWidget from './WeatherWidget.svelte';
+	import Cookies from 'js-cookie';
+	import { writable } from 'svelte/store';
 
 	sleep.prevent();
 	
 	let time = new Date();
 
-	let weather = new Weather();
-	let key = Cookies.get('apiKey');
-	if (key) {
-		weather.run(key);
+	function getWeather(callback) {
+		let r = new Request('api/weather');
+		fetch(r).then(
+			resp=>{
+				resp.json().then(
+					json=>callback(json)
+				)
+			}
+		);
 	}
+
+	let weatherData = writable(null);
+	let locationData = writable(null);
 
 	onMount(() => {
 		const interval = setInterval(() => {
 			time = new Date();
 		}, 1000);
-
+		getWeather(resp=>{
+			locationData.set(resp[0]);
+			weatherData.set(resp[1]);
+		});
 		return () => {
 			clearInterval(interval);
 		};
+		
 	});
 
 	function getTimeString(time) {
@@ -53,10 +64,12 @@
 		text-align: start;
 		display: inline-block;
 		user-select: none;
+		line-height: 1;
 	}
 	.date {
 		font-size: 4vw;
 		user-select: none;
+		letter-spacing: 4px;
 	}
 	.ampm {
 		display: inline-block;
@@ -64,8 +77,7 @@
 		user-select: none;
 	}
 	.footer {
-		position: absolute;
-		bottom:0;
+		align-self: flex-end;
 	}
 	.bg {
 		position: absolute;
@@ -75,6 +87,15 @@
 		height: 100%;
 		background: rgb(25,13,37);
 		background: linear-gradient(0deg, rgba(25,13,37,1) 0%, rgba(23,29,56,1) 100%);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.date-time {
+		align-self: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	button {
 		background: none;
@@ -86,16 +107,17 @@
 	}
 </style>
 <div class="bg">
-	<div class="time">{getTimeString(time)}</div>
-	<div class="ampm">{get12hrSuffix(time)}</div>
-	<div class="date">{getDateString(time)}</div>
-	<WeatherWidget weather={weather}></WeatherWidget>
-	<div class="footer">
-		<button on:click={function(){document.body.requestFullscreen();}}>Fullscreen</button>
-		<button on:click={function(){weather.apiKey=null}}>Reset API key</button>
+	<div class="date-time">
+		<div>
+			<div class="time">{getTimeString(time)}</div>
+			<div class="ampm">{get12hrSuffix(time).toLowerCase()}</div>
+		</div>
+		<div class="date">{getDateString(time).toLowerCase()}</div>
 	</div>
-	{#if !weather.apiKey}
-		<Welcome onSetApiKey={onSetApiKey}></Welcome>
-	{/if}
+	
+	<WeatherWidget weatherData={weatherData} locationData={locationData}></WeatherWidget>
+	<div class="footer">
+		<button on:click={function(){document.body.requestFullscreen()}}>Fullscreen</button>
+	</div>
 </div>
 

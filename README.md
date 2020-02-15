@@ -11,4 +11,13 @@ Create a file called `keys.json`, in the server folder. It should look something
 }
 ```
 
-2. Run `server/server.py`
+2. `npm install`
+
+3. `npm run build`
+
+4. `python server/server.py`
+
+### Server Dependencies
+
+- Flask
+- `requests`
