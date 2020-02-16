@@ -3,6 +3,14 @@
 	import WeatherWidget from './WeatherWidget.svelte';
 	import Cookies from 'js-cookie';
 	import { writable } from 'svelte/store';
+	import getTheme from './daycycle.js';
+
+
+	function normTime(time) { // current time (Date object) converted to a number between 0 and 1, 1 being 11:59 pm
+		return time.getHours()/24+time.getMinutes()/24/60
+	}
+
+	window._nt = normTime;
 	
 	let time = new Date();
 
@@ -58,6 +66,8 @@
 		weather.run(key);
 	}
 
+	$: theme = getTheme(normTime(time));
+
 </script>
 
 <style>
@@ -87,8 +97,8 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: rgb(216,158,188);
-background: linear-gradient(0deg, rgba(216,158,188,1) 0%, rgba(222,174,135,1) 100%);
+		/* background: rgb(216,158,188);
+background: linear-gradient(0deg, rgba(216,158,188,1) 0%, rgba(222,174,135,1) 100%); */
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -110,8 +120,8 @@ background: linear-gradient(0deg, rgba(216,158,188,1) 0%, rgba(222,174,135,1) 10
 		outline: none;
 	}
 </style>
-<div class="bg">
-	<div class="date-time">
+<div class="bg" style="background: {theme.bgGradient}">
+	<div class="date-time" style="color: {theme.textColor}">
 		<div>
 			<div class="time">{getTimeString(time)}</div>
 			<div class="ampm">{get12hrSuffix(time).toLowerCase()}</div>
