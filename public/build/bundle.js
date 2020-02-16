@@ -355,7 +355,7 @@ var app = (function () {
 
     const file = "src/WeatherWidget.svelte";
 
-    // (33:0) {#if $weatherData}
+    // (34:0) {#if $weatherData}
     function create_if_block(ctx) {
     	let div4;
     	let div0;
@@ -412,21 +412,21 @@ var app = (function () {
     			t13 = text("Wind speed: ");
     			t14 = text(t14_value);
     			t15 = text(" mph");
-    			attr_dev(div0, "class", "location svelte-1wbj1db");
-    			add_location(div0, file, 34, 4, 607);
-    			add_location(p, file, 38, 8, 744);
+    			attr_dev(div0, "class", "location svelte-1h2hypl");
+    			add_location(div0, file, 35, 4, 633);
+    			add_location(p, file, 39, 8, 770);
     			if (img.src !== (img_src_value = `http://openweathermap.org/img/wn/${/*$weatherData*/ ctx[2].weather[0].icon}@2x.png`)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "ok so remind me again why i need to add alt text");
-    			attr_dev(img, "class", "svelte-1wbj1db");
-    			add_location(img, file, 39, 8, 798);
-    			attr_dev(div1, "class", "weather svelte-1wbj1db");
-    			add_location(div1, file, 37, 4, 714);
-    			attr_dev(div2, "class", "subtext svelte-1wbj1db");
-    			add_location(div2, file, 41, 4, 954);
-    			attr_dev(div3, "class", "subtext svelte-1wbj1db");
-    			add_location(div3, file, 44, 4, 1055);
-    			attr_dev(div4, "class", "weather-widget svelte-1wbj1db");
-    			add_location(div4, file, 33, 0, 574);
+    			attr_dev(img, "class", "svelte-1h2hypl");
+    			add_location(img, file, 40, 8, 824);
+    			attr_dev(div1, "class", "weather svelte-1h2hypl");
+    			add_location(div1, file, 38, 4, 740);
+    			attr_dev(div2, "class", "subtext svelte-1h2hypl");
+    			add_location(div2, file, 42, 4, 980);
+    			attr_dev(div3, "class", "subtext svelte-1h2hypl");
+    			add_location(div3, file, 45, 4, 1081);
+    			attr_dev(div4, "class", "weather-widget svelte-1h2hypl");
+    			add_location(div4, file, 34, 0, 600);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div4, anchor);
@@ -474,7 +474,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(33:0) {#if $weatherData}",
+    		source: "(34:0) {#if $weatherData}",
     		ctx
     	});
 
@@ -2821,7 +2821,15 @@ var app = (function () {
     ); // midnight
     themes.push(
         new Theme(
-            timeMark(6, 30),
+            timeMark(3, 0),
+            color("#131420"),
+            color("#0F131B"),
+            color("#688C85")
+        )
+    ); // 3am
+    themes.push(
+        new Theme(
+            timeMark(8, 0),
             color("#D89EBC"),
             color("#DEAE87"),
             color("#FFE8E8")
@@ -2992,24 +3000,24 @@ var app = (function () {
     			button1 = element("button");
     			button1.textContent = "Prevent Sleep";
     			attr_dev(div0, "class", "time svelte-tjdein");
-    			add_location(div0, file$1, 125, 3, 2421);
+    			add_location(div0, file$1, 141, 3, 2804);
     			attr_dev(div1, "class", "ampm svelte-tjdein");
-    			add_location(div1, file$1, 126, 3, 2470);
-    			add_location(div2, file$1, 124, 2, 2412);
+    			add_location(div1, file$1, 142, 3, 2853);
+    			add_location(div2, file$1, 140, 2, 2795);
     			attr_dev(div3, "class", "date svelte-tjdein");
-    			add_location(div3, file$1, 128, 2, 2541);
+    			add_location(div3, file$1, 144, 2, 2924);
     			attr_dev(div4, "class", "date-time svelte-tjdein");
     			set_style(div4, "color", /*theme*/ ctx[1].textColor);
-    			add_location(div4, file$1, 123, 1, 2353);
+    			add_location(div4, file$1, 139, 1, 2736);
     			attr_dev(button0, "class", "svelte-tjdein");
-    			add_location(button0, file$1, 133, 2, 2722);
+    			add_location(button0, file$1, 149, 2, 3105);
     			attr_dev(button1, "class", "svelte-tjdein");
-    			add_location(button1, file$1, 134, 2, 2809);
+    			add_location(button1, file$1, 150, 2, 3192);
     			attr_dev(div5, "class", "footer svelte-tjdein");
-    			add_location(div5, file$1, 132, 1, 2699);
+    			add_location(div5, file$1, 148, 1, 3082);
     			attr_dev(div6, "class", "bg svelte-tjdein");
     			set_style(div6, "background", /*theme*/ ctx[1].bgGradient);
-    			add_location(div6, file$1, 122, 0, 2296);
+    			add_location(div6, file$1, 138, 0, 2679);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3036,8 +3044,8 @@ var app = (function () {
     			current = true;
 
     			dispose = [
-    				listen_dev(button0, "click", /*click_handler*/ ctx[4], false, false, false),
-    				listen_dev(button1, "click", /*click_handler_1*/ ctx[5], false, false, false)
+    				listen_dev(button0, "click", /*click_handler*/ ctx[6], false, false, false),
+    				listen_dev(button1, "click", /*click_handler_1*/ ctx[7], false, false, false)
     			];
     		},
     		p: function update(ctx, [dirty]) {
@@ -3109,6 +3117,12 @@ var app = (function () {
     	});
     }
 
+    function _get_debug_time_string(_debug_time) {
+    	let hrs = Math.floor(_debug_time * 24);
+    	let mins = Math.floor(_debug_time % (1 / 24) * 60 * 24);
+    	return (hrs < 10 ? "0" : "") + hrs + ":" + (mins < 10 ? "0" : "") + mins;
+    }
+
     function instance$1($$self, $$props, $$invalidate) {
     	window._nt = normTime;
     	let time = new Date();
@@ -3135,10 +3149,20 @@ var app = (function () {
     			weatherData.set(resp[1]);
     		});
 
+    		setInterval(
+    			() => {
+    				$$invalidate(4, _debug_time += 0.002);
+    				$$invalidate(4, _debug_time = _debug_time % 1);
+    			},
+    			50
+    		);
+
     		return () => {
     			clearInterval(clockInterval);
     		};
     	});
+
+    	let _debug_time = 0;
 
     	const click_handler = function () {
     		document.body.requestFullscreen();
@@ -3156,18 +3180,34 @@ var app = (function () {
     		if ("time" in $$props) $$invalidate(0, time = $$props.time);
     		if ("weatherData" in $$props) $$invalidate(2, weatherData = $$props.weatherData);
     		if ("locationData" in $$props) $$invalidate(3, locationData = $$props.locationData);
+    		if ("_debug_time" in $$props) $$invalidate(4, _debug_time = $$props._debug_time);
     		if ("theme" in $$props) $$invalidate(1, theme = $$props.theme);
+    		if ("_debug_time_string" in $$props) _debug_time_string = $$props._debug_time_string;
     	};
 
     	let theme;
+    	let _debug_time_string;
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty & /*time*/ 1) {
     			 $$invalidate(1, theme = getTheme(normTime(time)));
     		}
+
+    		if ($$self.$$.dirty & /*_debug_time*/ 16) {
+    			 _debug_time_string = _get_debug_time_string(_debug_time);
+    		}
     	};
 
-    	return [time, theme, weatherData, locationData, click_handler, click_handler_1];
+    	return [
+    		time,
+    		theme,
+    		weatherData,
+    		locationData,
+    		_debug_time,
+    		_debug_time_string,
+    		click_handler,
+    		click_handler_1
+    	];
     }
 
     class App extends SvelteComponentDev {

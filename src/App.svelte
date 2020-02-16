@@ -41,6 +41,12 @@
 			locationData.set(resp[0]);
 			weatherData.set(resp[1]);
 		});
+
+		setInterval(() => {
+			_debug_time+=0.002;
+			_debug_time = _debug_time%1;
+		}, 50);
+
 		return () => {
 			clearInterval(clockInterval);
 		};
@@ -66,7 +72,17 @@
 		weather.run(key);
 	}
 
+	let _debug_time = 0;
+
+	function _get_debug_time_string(_debug_time) {
+		let hrs = Math.floor(_debug_time*24);
+		let mins = Math.floor(_debug_time%(1/24)*60*24)
+
+		return (hrs<10 ? '0' : '') + hrs+':'+(mins<10 ? '0' : '')+mins;
+	}
+
 	$: theme = getTheme(normTime(time));
+	$: _debug_time_string = _get_debug_time_string(_debug_time);
 
 </script>
 

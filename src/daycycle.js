@@ -26,7 +26,15 @@ themes.push(
 ); // midnight
 themes.push(
     new Theme(
-        timeMark(6, 30),
+        timeMark(3, 0),
+        Color("#131420"),
+        Color("#0F131B"),
+        Color("#688C85")
+    )
+); // 3am
+themes.push(
+    new Theme(
+        timeMark(8, 0),
         Color("#D89EBC"),
         Color("#DEAE87"),
         Color("#FFE8E8")

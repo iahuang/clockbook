@@ -21,6 +21,7 @@
         padding: 3vh;
         display: flex;
         flex-direction: column;
+        font-weight: 300;
     }
     .subtext {
         font-size: 2vh;
