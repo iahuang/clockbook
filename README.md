@@ -1,4 +1,4 @@
-# clockbook
+# This repository has been replaced by [MyHUD]((https://github.com/iahuang/myhud), an essentially better version of this project
 
 ![Day screenshot](https://github.com/iahuang/clockbook/raw/master/screenshots/day.png)
 ![Day screenshot](https://github.com/iahuang/clockbook/raw/master/screenshots/night.png)
